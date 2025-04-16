@@ -3,7 +3,7 @@ library(tidyverse)
 library(usethis)
 library(gert)
 
-year <- 2021
+year <- 2023
 
 # Initialize git repo if not already done
 if (!dir.exists(".git")) {
@@ -62,5 +62,3 @@ deploy_apps <- function() {
 
 deploy_apps()
 cat("Apps deployed and changes pushed to GitHub.\n")
-
-
