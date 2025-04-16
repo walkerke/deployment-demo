@@ -19,7 +19,8 @@ va_pop <- get_acs(
     variables = "B01003_001",
     state = "VA",
     year = year
-)
+) %>%
+    mutate(year = year)
 
 # Get VA housing data
 va_housing <- get_acs(
@@ -27,7 +28,8 @@ va_housing <- get_acs(
     variables = "B25001_001",
     state = "VA",
     year = year
-)
+) %>%
+    mutate(year = year)
 
 # Get VA income data
 va_income <- get_acs(
@@ -35,14 +37,15 @@ va_income <- get_acs(
     variables = "B19013_001",
     state = "VA",
     year = year
-)
+) %>%
+    mutate(year = year)
 
 # Save data to respective app directories
 write_rds(va_pop, "population/population_data.rds")
 write_rds(va_housing, "housing/housing_data.rds")
 write_rds(va_income, "income/income_data.rds")
 
-git_remote_add(url = "https://github.com/walkerke/deployment-demo.git")
+# git_remote_add(url = "https://github.com/walkerke/deployment-demo.git")
 
 deploy_apps <- function() {
     # Stage all changes
@@ -52,10 +55,9 @@ deploy_apps <- function() {
     git_commit("Update apps and data")
 
     git_push()
-
 }
 
-# deploy_apps()
+deploy_apps()
 
 cat("Data downloaded and saved to app directories.\n")
 cat("Run deploy_apps() to commit and push to GitHub.\n")
