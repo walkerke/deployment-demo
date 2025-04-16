@@ -45,6 +45,9 @@ write_rds(va_pop, "population/population_data.rds")
 write_rds(va_housing, "housing/housing_data.rds")
 write_rds(va_income, "income/income_data.rds")
 
+cat("Data downloaded and saved to app directories.\n")
+
+
 # git_remote_add(url = "https://github.com/walkerke/deployment-demo.git")
 
 deploy_apps <- function() {
@@ -58,6 +61,6 @@ deploy_apps <- function() {
 }
 
 deploy_apps()
+cat("Apps deployed and changes pushed to GitHub.\n")
 
-cat("Data downloaded and saved to app directories.\n")
-cat("Run deploy_apps() to commit and push to GitHub.\n")
+
