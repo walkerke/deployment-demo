@@ -3,7 +3,7 @@ library(tidyverse)
 library(usethis)
 library(gert)
 
-year <- 2019
+year <- 2023
 
 # Initialize git repo if not already done
 if (!dir.exists(".git")) {
